@@ -10,7 +10,7 @@ body {
     justify-content: center;
     align-items: center;
     overflow-y: auto; /* Allow vertical scrolling */
-    background-color: black;
+    background-color: green;
 }
 
 /* Global styles for the form */
