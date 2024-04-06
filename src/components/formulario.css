@@ -1,0 +1,80 @@
+/* Container to center the form */
+.container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: flex-start; /* Align items to the start of the container */
+    height: 100vh; /* Full viewport height */
+    width: 100vw; /* Full viewport width */
+    overflow-y: auto; /* Allow vertical scrolling */
+    flex-direction: column; /* Stack children vertically */
+   }
+   
+   /* Buttons container */
+   .buttons-container {
+    display: flex;
+    justify-content: space-between; /* Space buttons evenly */
+    width: 100%; /* Full width */
+    padding: 20px; /* Padding around buttons */
+    box-sizing: border-box;
+   }
+   
+   /* Questions container */
+   .questions-container {
+    display: flex;
+    flex-direction: column; /* Stack questions vertically */
+    align-items: flex-start; /* Align questions to the start */
+    width: 100%; /* Full width */
+   }
+   
+   /* Form styling */
+   .Formulario {
+    width: 100%; /* Make the form responsive */
+    padding: 20px;
+    box-sizing: border-box;
+   }
+   
+   /* Question Box */
+   .question-box {
+    border: 1px solid #ccc; /* Light grey border */
+    padding: 20px; /* Padding inside the box */
+    margin-bottom: 20px; /* Space between questions */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #84bfd7; /* Light grey background */
+   }
+   
+   /* Input and button styling */
+   .Formulario input, .Formulario button {
+    width: 100%; /* Make inputs and buttons take up the full width of the form */
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+   }
+   .remove-answer-btn {
+    border: none; /* Remove default button border */
+    background-color: transparent; /* Make the background transparent */
+    padding: 5px; /* Adjust padding to make the button larger */
+    font-size: 14px; /* Adjust font size to fit the icon */
+    border-radius: 50%; /* Make the button circular */
+    cursor: pointer; /* Change the cursor to a pointer when hovering over the button */
+    color: #000; /* Set the icon color */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background-color and color */
+   }
+   
+   /* Optional: Add hover effect */
+   .remove-answer-btn:hover {
+    background-color: #f00; /* Change background color on hover */
+    color: #fff; /* Change icon color on hover */
+   }
+   /* Responsive design adjustments */
+   @media screen and (max-width: 768px) {
+    .Formulario input, .Formulario button {
+       padding: 15px; /* Increase padding for easier interaction on touch devices */
+    }
+   }
+   
+   @media screen and (max-width: 480px) {
+    .Formulario input, .Formulario button {
+       padding: 20px; /* Further increase padding for even easier interaction */
+    }
+   }
+   

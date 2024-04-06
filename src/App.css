@@ -1,0 +1,48 @@
+
+
+/* Ensure the body takes up the full viewport height */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto; /* Allow vertical scrolling */
+    background-color: black;
+}
+
+/* Global styles for the form */
+.Formulario {
+   
+    width: 50%; /* Make the form responsive */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container2{
+    display: flex;
+    height: 100vh;
+}
+
+/* Input and button styling */
+.Formulario input, .Formulario button {
+    width: 100%; /* Make inputs and buttons take up the full width of the form */
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+/* Responsive design adjustments */
+@media screen  {
+    .Formulario input, .Formulario button {
+        padding: 15px; /* Increase padding for easier interaction on touch devices */
+    }
+}
+
+@media screen  {
+    .Formulario input, .Formulario button {
+        padding: 20px; /* Further increase padding for even easier interaction */
+    }
+}

@@ -10,29 +10,34 @@
 
 body {
     background-color: #F5F6F8;
-    overflow: hidden;
+    overflow: auto;
     margin: 0; /* Added to reset default margin */
 }
 
 /* Color Variables */
 .sidebar-navigation {
     display: flex; /* Changed to flex for responsiveness */
-    min-height: 100vh;
-    width: 80px;
+    justify-content: center; /* Centers the ul horizontally */
+    align-items: center; /* Centers the ul vertically */
+    min-height: 30%;
     background-color: #313443;
 }
 
 .sidebar-navigation ul {
-    text-align: center;
+    display: flex; /* Added to make the list items flex items */
+    flex-direction: column; /* Stacks the list items vertically */
+    align-items: center; /* Centers the list items horizontally */
+    justify-content: center; /* Centers the list items vertically */
+    height: 100%; /* Ensures the list takes up the full height of the navigation */
     color: white;
-    width: 100%; /* Added to fill the available space */
 }
 
 .sidebar-navigation ul li {
-    padding: 28px 0;
+    padding: 100%;
     cursor: pointer;
     transition: all ease-out 120ms;
     position: relative; /* Added for tooltip positioning */
+    
 }
 
 .sidebar-navigation ul li i {
@@ -73,8 +78,8 @@ body {
 }
 
 /* Media Query for responsiveness */
-@media screen and (max-width: 768px) {
+@media screen {
     .sidebar-navigation {
-        width: 100%;
+        width: 10%;
     }
 }

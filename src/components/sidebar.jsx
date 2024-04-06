@@ -1,32 +1,37 @@
 import React from 'react';
 import './sidebar.css';
+import { Link } from "react-router-dom";
 
 const SidebarNavigation = () => {
  return (
-    <nav class="sidebar-navigation">
+
+    <nav className="sidebar-navigation">
 	<ul>
-		<li class="active">
-        <i class="fa fa-tachometer" aria-hidden="true"></i>
+		<li>
+      
+        <i className="fa fa-tachometer" aria-hidden="true"></i>
+        <span className="tooltip">Dashboard</span>
+       
 
-			<span class="tooltip">Dashboard</span>
 		</li>
 		<li>
-        <i class="fa fa-address-book-o" aria-hidden="true"></i>
+        <i className="fa fa-address-book-o" aria-hidden="true"></i>
 
-			<span class="tooltip">Pacientes</span>
+			<span className="tooltip">Pacientes</span>
 		</li>
 		<li>
-        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        <i className="fa fa-pencil-square-o" aria-hidden="true"></i>
 
-			<span class="tooltip">Formularios</span>
+			<span className="tooltip">Formularios</span>
 		</li>
 
 		<li>
-        <i class="fa-solid fa-gear"></i>
-			<span class="tooltip">Ajustes</span>
+        <i className="fa-solid fa-gear"></i>
+			<span className="tooltip">Ajustes</span>
 		</li>
 	</ul>
 </nav>
+
  );
 };
 
