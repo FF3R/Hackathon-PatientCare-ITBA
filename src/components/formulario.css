@@ -1,80 +1,100 @@
-/* Container to center the form */
 .container {
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: flex-start; /* Align items to the start of the container */
-    height: 100vh; /* Full viewport height */
-    width: 100vw; /* Full viewport width */
-    overflow-y: auto; /* Allow vertical scrolling */
-    flex-direction: column; /* Stack children vertically */
-   }
-   
-   /* Buttons container */
-   .buttons-container {
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+    background-color: #f0f0f0;
+}
+
+.buttons-container {
     display: flex;
-    justify-content: space-between; /* Space buttons evenly */
-    width: 100%; /* Full width */
-    padding: 20px; /* Padding around buttons */
-    box-sizing: border-box;
-   }
-   
-   /* Questions container */
-   .questions-container {
-    display: flex;
-    flex-direction: column; /* Stack questions vertically */
-    align-items: flex-start; /* Align questions to the start */
-    width: 100%; /* Full width */
-   }
-   
-   /* Form styling */
-   .Formulario {
-    width: 100%; /* Make the form responsive */
+    justify-content: space-between;
+    width: 100%;
     padding: 20px;
     box-sizing: border-box;
-   }
-   
-   /* Question Box */
-   .question-box {
-    border: 1px solid #ccc; /* Light grey border */
-    padding: 20px; /* Padding inside the box */
-    margin-bottom: 20px; /* Space between questions */
-    border-radius: 5px; /* Rounded corners */
-    background-color: #84bfd7; /* Light grey background */
-   }
-   
-   /* Input and button styling */
-   .Formulario input, .Formulario button {
-    width: 100%; /* Make inputs and buttons take up the full width of the form */
+}
+
+.question-input {
+    display: flex;
+    align-items: center;
+}
+
+.question-input2 {
+    flex-grow: 1;
+    font-size: 14px;
+    border: none;
+    padding: 5px;
+}
+
+.questions-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    height: 60vh;
+    overflow-y: auto;
+}
+
+.question-box {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+
+.Formulario input, .Formulario button {
+    width: 100%;
     padding: 10px;
     margin-bottom: 10px;
     box-sizing: border-box;
-   }
-   .remove-answer-btn {
-    border: none; /* Remove default button border */
-    background-color: transparent; /* Make the background transparent */
-    padding: 5px; /* Adjust padding to make the button larger */
-    font-size: 14px; /* Adjust font size to fit the icon */
-    border-radius: 50%; /* Make the button circular */
-    cursor: pointer; /* Change the cursor to a pointer when hovering over the button */
-    color: #000; /* Set the icon color */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background-color and color */
-   }
-   
-   /* Optional: Add hover effect */
-   .remove-answer-btn:hover {
-    background-color: #f00; /* Change background color on hover */
-    color: #fff; /* Change icon color on hover */
-   }
-   /* Responsive design adjustments */
-   @media screen and (max-width: 768px) {
-    .Formulario input, .Formulario button {
-       padding: 15px; /* Increase padding for easier interaction on touch devices */
+}
+
+.remove-answer-btn, .add-answer-btn {
+    border: none;
+    background-color: transparent;
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #000;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.remove-answer-btn:hover, .add-answer-btn:hover {
+    background-color: #f00;
+    color: #fff;
+}
+
+.add-answer-btn:hover {
+    background-color: rgb(79, 207, 43);
+    color: #fff;
+}
+
+.answer-input-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .question-input2, .add-answer-btn, .remove-answer-btn {
+        padding: 15px;
     }
-   }
-   
-   @media screen and (max-width: 480px) {
-    .Formulario input, .Formulario button {
-       padding: 20px; /* Further increase padding for even easier interaction */
+}
+
+@media screen and (max-width: 480px) {
+    .question-input2, .add-answer-btn, .remove-answer-btn {
+        padding: 20px;
     }
-   }
-   
+}

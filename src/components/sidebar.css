@@ -5,30 +5,30 @@
     list-style: none;
     font-family: 'Lato', sans-serif;
     line-height: 1;
-    box-sizing: border-box; /* Added to include padding and border in element's total width and height */
+    box-sizing: border-box; 
 }
 
 body {
     background-color: #F5F6F8;
     overflow: auto;
-    margin: 0; /* Added to reset default margin */
+    margin: 0; 
 }
 
-/* Color Variables */
+
 .sidebar-navigation {
-    display: flex; /* Changed to flex for responsiveness */
-    justify-content: center; /* Centers the ul horizontally */
-    align-items: center; /* Centers the ul vertically */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
     min-height: 30%;
     background-color: #313443;
 }
 
 .sidebar-navigation ul {
-    display: flex; /* Added to make the list items flex items */
-    flex-direction: column; /* Stacks the list items vertically */
-    align-items: center; /* Centers the list items horizontally */
-    justify-content: center; /* Centers the list items vertically */
-    height: 100%; /* Ensures the list takes up the full height of the navigation */
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    height: 100%; 
     color: white;
 }
 
@@ -36,7 +36,7 @@ body {
     padding: 100%;
     cursor: pointer;
     transition: all ease-out 120ms;
-    position: relative; /* Added for tooltip positioning */
+    position: relative;
     
 }
 
@@ -53,7 +53,7 @@ body {
     padding: 8px 15px;
     border-radius: 3px;
     margin-top: -26px;
-    left: calc(100% + 10px); /* Changed to adapt tooltip position */
+    left: calc(100% + 10px); 
     opacity: 0;
     visibility: hidden;
     font-size: 13px;
@@ -77,7 +77,6 @@ body {
     color: #98D7EC;
 }
 
-/* Media Query for responsiveness */
 @media screen {
     .sidebar-navigation {
         width: 10%;
