@@ -2,8 +2,11 @@ import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import styles from './register.module.css';
+import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 
 const RegisterMedic = () => {
+ const navigate = useNavigate(); // Utiliza useNavigate para manejar las redirecciones
+
  const initialValues = {
     firstname: '',
     lastname: '',
@@ -25,13 +28,46 @@ const RegisterMedic = () => {
  const formik = useFormik({
     initialValues,
     validationSchema,
-    onSubmit: (values) => {
-      console.log(values);
-      // Aquí puedes manejar el envío de los datos del formulario, por ejemplo, enviándolos a un servidor
+    onSubmit: async (values) => {
+      try {
+        // Primer fetch para registrar al doctor
+        const response = await fetch('http://localhost:8080/landing-page/register-doctor', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(values),
+        });
+
+        if (!response.ok) {
+          throw new Error('Error al registrar al doctor');
+        }
+
+        // Segundo fetch para hacer login
+        const loginResponse = await fetch('http://localhost:8080/landing-page/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email: values.email, password: values.password }),
+        });
+
+        if (!loginResponse.ok) {
+          throw new Error('Error al iniciar sesión');
+        }
+
+        // Si todo es exitoso, guarda la información en sessionStorage y redirige a /home
+        const loginData = await loginResponse.json();
+        sessionStorage.setItem('loginData', JSON.stringify(loginData));
+        navigate('/home');
+      } catch (error) {
+        console.error(error);
+        // Aquí puedes manejar los errores, por ejemplo, mostrando un mensaje al usuario
+      }
     },
  });
-
  return (
+  
     <section className={styles.container}>
       <header>Registro Medico</header>
       <form onSubmit={formik.handleSubmit} className={styles.form}>
@@ -105,6 +141,7 @@ const RegisterMedic = () => {
         <button type="submit">Enviar</button>
       </form>
     </section>
+
  );
 };
 

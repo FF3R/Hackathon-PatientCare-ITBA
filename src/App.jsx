@@ -1,40 +1,51 @@
-import { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import './App.css';
-import SidebarNavigation from './components/sidebar';
-import Formulario from './components/formulario.jsx';
-import Login from './components/login.jsx';
-import Register from './components/register.jsx';
-import RegisterMedic from './components/registerMedic.jsx';
 
-function App() {
- const [count, setCount] = useState(0);
+import { Box, CssBaseline, ThemeProvider, Typography} from '@mui/material'; 
+import React from 'react'
+import './App.css'
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import theme from './config/theme';
+import SidenNav from './components/SideNav';
+import AppHeader from './components/AppHeader';
+import { ProSidebarProvider } from 'react-pro-sidebar';
+import { BrowserRouter } from 'react-router-dom';
+import AppRoutes from './routers/AppRoutes';
 
- return (
-  
-    <>
-      
-     
-      <Router>
-      <Routes>
-        <Route path="/home" element={
-          <div className='container2'>
-            <SidebarNavigation />
-            <Routes>
-              <Route path="formulario" element={<Formulario />} />
-            </Routes>
-          </div>
-        } />
-        <Route path="login" element={<Login />} />
-        <Route path='register' element={<Register />}></Route>
-        <Route path='registerMedic' element={< RegisterMedic />}> </Route>
-      </Routes>
-    </Router>
-    
-    </>
-    
- );
+
+function App() {  
+  return (
+    <React.Fragment>  
+      <ThemeProvider theme={theme}>
+        <ProSidebarProvider>  
+          <CssBaseline />    
+          <Box sx={styles.container}>
+            <BrowserRouter>
+              <Box component={'main'} sx={styles.mainSection}>
+                <AppRoutes />
+              </Box>
+            </BrowserRouter>
+          </Box>
+        </ProSidebarProvider> 
+      </ThemeProvider>
+    </React.Fragment>
+  )
 }
 
-export default App;
+/** @type {import("@mui/material").SxProps} */
+const styles = {
+  container:{
+    display: 'flex',
+    bgcolor: 'neutral.light',
+    height: 'calc(100% -64px)'
+  },
+  mainSection: {
+    p: 1,
+    width: '100%',
+    height: '100%',
+    overflow: 'auto'
+  }
+}
 
+export default App

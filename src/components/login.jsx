@@ -2,8 +2,11 @@ import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import styles from './register.module.css';
+import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 
 const Login = () => {
+ const navigate = useNavigate(); // Utiliza useNavigate para manejar las redirecciones
+
  const initialValues = {
     email: '',
     password: '',
@@ -17,9 +20,27 @@ const Login = () => {
  const formik = useFormik({
     initialValues,
     validationSchema,
-    onSubmit: (values) => {
-      console.log(values);
-      // Aquí puedes manejar el envío de los datos del formulario, por ejemplo, enviándolos a un servidor
+    onSubmit: async (values) => {
+      try {
+        const response = await fetch('http://localhost:8080/landing-page/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(values),
+        });
+
+        if (!response.ok) {
+          throw new Error('Error al iniciar sesión');
+        }
+
+        const loginData = await response.json();
+        sessionStorage.setItem('loginData', JSON.stringify(loginData));
+        navigate('/home');
+      } catch (error) {
+        console.error(error);
+        // Aquí puedes manejar los errores, por ejemplo, mostrando un mensaje al usuario
+      }
     },
  });
 

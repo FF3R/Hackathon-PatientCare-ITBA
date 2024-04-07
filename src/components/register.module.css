@@ -6,14 +6,7 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-body {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  background: rgb(130, 106, 251);
-}
+
 .container {
   position: relative;
   max-width: 700px;
@@ -111,6 +104,16 @@ body {
 }
 .form button:hover {
   background: rgb(88, 56, 250);
+}
+._container_w21y8_19{
+  display: flex;
+ justify-content: center; /* Align horizontally */
+ align-items: center; /* Align vertically */
+ height: 100vh; /* Full viewport height */
+}
+.centrar {
+  align-items: center;
+  background-color: red;
 }
 /*Responsive*/
 @media screen and (max-width: 500px) {
